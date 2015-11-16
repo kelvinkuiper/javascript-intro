@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript en HTML + CSS</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<form class="form" onsubmit="return checkEmail()">
+  <input type="text" name="email" class="input-email" placeholder="voer je e-mailadres in" />  <input type="submit" value="Opslaan" class="submitbutton">
+</form>
+
+<script>
+    var input = document.querySelector('.input-email');
+    function checkEmail() {
+     
+        var value = input.value;
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        
+        var isValidEmail = re.test(value);
+
+
+        if(isValidEmail) {
+            return true;
+        }
+        else {
+            input.style.border = '1px solid red';
+            //border rood
+
+            document.write('Email klopt niet');
+
+            //text onder input
+
+            return false;
+        }
+
+    }
+</script>
+
+</body>
+</html>
